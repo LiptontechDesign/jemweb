@@ -6,7 +6,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jemweb.co',
+  site: 'https://LiptontechDesign.github.io',
+  base: '/jemweb',
   vite: {
     plugins: [tailwindcss()]
   },
