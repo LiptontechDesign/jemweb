@@ -28,10 +28,17 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     @apply bg-white text-gray-800 antialiased;
     font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Prevent iOS Safari zoom on focus — inputs must be >= 16px */
+  input, select, textarea {
+    font-size: 16px !important;
   }
 }
 

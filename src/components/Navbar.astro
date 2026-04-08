@@ -106,10 +106,18 @@ const currentPath = Astro.url.pathname;
   const closeIcon = document.getElementById('menu-close-icon');
 
   btn?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
     menu?.classList.toggle('hidden');
     openIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
+  });
+
+  // Auto-close mobile menu when a link is tapped
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      openIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
   });
 
   // Navbar scroll effect
