@@ -43,6 +43,40 @@
 }
 
 @layer utilities {
+  /* Fluid typography — scales smoothly between 320px and 1280px */
+  .text-fluid-hero {
+    font-size: clamp(2.25rem, 1.5rem + 3.75vw, 4.5rem);
+  }
+  .text-fluid-h1 {
+    font-size: clamp(2rem, 1.4rem + 3vw, 3.75rem);
+  }
+  .text-fluid-h2 {
+    font-size: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
+  }
+  .text-fluid-h3 {
+    font-size: clamp(1.25rem, 1rem + 1.25vw, 1.875rem);
+  }
+  .text-fluid-body {
+    font-size: clamp(1rem, 0.925rem + 0.375vw, 1.25rem);
+  }
+
+  /* Fluid spacing — padding/margin that scales with viewport */
+  .py-fluid-section {
+    padding-top: clamp(3rem, 2rem + 5vw, 7rem);
+    padding-bottom: clamp(3rem, 2rem + 5vw, 7rem);
+  }
+  .py-fluid-hero {
+    padding-top: clamp(3rem, 1.5rem + 6vw, 10rem);
+    padding-bottom: clamp(3rem, 1.5rem + 6vw, 10rem);
+  }
+  .gap-fluid {
+    gap: clamp(1rem, 0.5rem + 2vw, 3rem);
+  }
+  .px-fluid {
+    padding-left: clamp(1rem, 0.5rem + 2vw, 2rem);
+    padding-right: clamp(1rem, 0.5rem + 2vw, 2rem);
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }

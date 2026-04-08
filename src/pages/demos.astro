@@ -86,23 +86,23 @@ const demos = [
   schema={schema}
 >
   <!-- Hero -->
-  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-20 sm:py-28 overflow-hidden">
+  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-fluid-hero overflow-hidden">
     <div class="absolute inset-0 opacity-15">
       <div class="absolute top-10 right-20 w-80 h-80 bg-accent-500 rounded-full blur-[128px]"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <span class="inline-block text-sm font-semibold uppercase tracking-wider text-accent-400 mb-4">Live Demos</span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+      <h1 class="text-fluid-h1 font-extrabold tracking-tight mb-6">
         Business system demos
       </h1>
-      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-fluid-body text-gray-300 max-w-2xl mx-auto leading-relaxed">
         These interactive demos prove I can build real functionality — not just static pages. Explore them to see what's possible for your business.
       </p>
     </div>
   </section>
 
   <!-- Demo Cards -->
-  <section class="py-20 sm:py-28 bg-white">
+  <section class="py-fluid-section bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {demos.map((demo, i) => (
@@ -301,16 +301,16 @@ const demos = [
   </section>
 
   <!-- CTA -->
-  <section class="py-20 sm:py-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
+  <section class="py-fluid-section bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-[128px]"></div>
     </div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="reveal">
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
+        <h2 class="text-fluid-h2 font-extrabold tracking-tight mb-6">
           Impressed? Let's build something for your business
         </h2>
-        <p class="text-lg text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p class="text-fluid-body text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
           These demos are just a glimpse. I can build custom systems tailored exactly to your business needs.
         </p>
         <div class="flex flex-wrap justify-center gap-4">

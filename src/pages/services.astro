@@ -114,23 +114,23 @@ const serviceCategories = [
   schema={schema}
 >
   <!-- Hero -->
-  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-20 sm:py-28 overflow-hidden">
+  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-fluid-hero overflow-hidden">
     <div class="absolute inset-0 opacity-15">
       <div class="absolute top-10 right-20 w-72 h-72 bg-primary-500 rounded-full blur-[128px]"></div>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-300 mb-4">Services</span>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+      <h1 class="text-fluid-h1 font-extrabold tracking-tight mb-6">
         What I build for businesses
       </h1>
-      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-fluid-body text-gray-300 max-w-2xl mx-auto leading-relaxed">
         From professional company websites to complex inventory systems — I build digital solutions that help businesses sell, organize, and operate better online.
       </p>
     </div>
   </section>
 
   <!-- Service Categories -->
-  <section class="py-20 sm:py-28 bg-white">
+  <section class="py-fluid-section bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-20">
         {serviceCategories.map((category, i) => (
@@ -140,8 +140,8 @@ const serviceCategories = [
                 <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 mb-6">
                   <Fragment set:html={category.icon} />
                 </div>
-                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">{category.title}</h2>
-                <p class="text-lg text-gray-600 leading-relaxed mb-6">{category.description}</p>
+                <h2 class="text-fluid-h3 font-extrabold text-gray-900 mb-4">{category.title}</h2>
+                <p class="text-fluid-body text-gray-600 leading-relaxed mb-6">{category.description}</p>
                 <a href={`${base}/contact`} class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
                   Discuss your project
                   <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -170,7 +170,7 @@ const serviceCategories = [
   </section>
 
   <!-- Better Labels Section -->
-  <section class="py-20 sm:py-28 bg-gray-50">
+  <section class="py-fluid-section bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="reveal">
         <SectionHeading
@@ -199,16 +199,16 @@ const serviceCategories = [
   </section>
 
   <!-- CTA -->
-  <section class="py-20 sm:py-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
+  <section class="py-fluid-section bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[128px]"></div>
     </div>
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="reveal">
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
+        <h2 class="text-fluid-h2 font-extrabold tracking-tight mb-6">
           Not sure which service you need?
         </h2>
-        <p class="text-lg text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+        <p class="text-fluid-body text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
           Tell me about your business and what you want to achieve. I'll recommend the right solution for you.
         </p>
         <div class="flex flex-wrap justify-center gap-4">
