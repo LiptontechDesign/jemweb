@@ -1,29 +1,30 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentYear = new Date().getFullYear();
 
 const services = [
-  { label: 'Business Websites', href: '/services#business-websites' },
-  { label: 'Ecommerce Websites', href: '/services#ecommerce' },
-  { label: 'Custom Web Systems', href: '/services#custom-systems' },
-  { label: 'Inventory Systems', href: '/services#custom-systems' },
-  { label: 'Booking Systems', href: '/services#custom-systems' },
-  { label: 'Website Maintenance', href: '/services#maintenance' },
+  { label: 'Business Websites', href: `${base}/services#business-websites` },
+  { label: 'Ecommerce Websites', href: `${base}/services#ecommerce` },
+  { label: 'Custom Web Systems', href: `${base}/services#custom-systems` },
+  { label: 'Inventory Systems', href: `${base}/services#custom-systems` },
+  { label: 'Booking Systems', href: `${base}/services#custom-systems` },
+  { label: 'Website Maintenance', href: `${base}/services#maintenance` },
 ];
 
 const company = [
-  { label: 'About', href: '/about' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Live Demos', href: '/demos' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: `${base}/about` },
+  { label: 'Portfolio', href: `${base}/portfolio` },
+  { label: 'Live Demos', href: `${base}/demos` },
+  { label: 'Industries', href: `${base}/industries` },
+  { label: 'Contact', href: `${base}/contact` },
 ];
 
 const industries = [
-  { label: 'Clinics & Healthcare', href: '/industries#healthcare' },
-  { label: 'Retail & Ecommerce', href: '/industries#retail' },
-  { label: 'Restaurants & Hospitality', href: '/industries#hospitality' },
-  { label: 'Schools & Training', href: '/industries#education' },
-  { label: 'SMEs & Startups', href: '/industries#smes' },
+  { label: 'Clinics & Healthcare', href: `${base}/industries#healthcare` },
+  { label: 'Retail & Ecommerce', href: `${base}/industries#retail` },
+  { label: 'Restaurants & Hospitality', href: `${base}/industries#hospitality` },
+  { label: 'Schools & Training', href: `${base}/industries#education` },
+  { label: 'SMEs & Startups', href: `${base}/industries#smes` },
 ];
 ---
 
@@ -32,7 +33,7 @@ const industries = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       <!-- Brand -->
       <div class="lg:col-span-1">
-        <a href="/" class="flex items-center gap-2 mb-4">
+        <a href={`${base}/`} class="flex items-center gap-2 mb-4">
           <div class="w-9 h-9 bg-primary-600 rounded-lg flex items-center justify-center">
             <span class="text-white font-extrabold text-sm">JW</span>
           </div>
@@ -114,7 +115,7 @@ const industries = [
         &copy; {currentYear} Jemweb. All rights reserved.
       </p>
       <div class="flex items-center gap-6">
-        <a href="/contact" class="text-sm text-gray-500 hover:text-white transition-colors">Get in Touch</a>
+        <a href={`${base}/contact`} class="text-sm text-gray-500 hover:text-white transition-colors">Get in Touch</a>
       </div>
     </div>
   </div>
