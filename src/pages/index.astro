@@ -1,0 +1,423 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Jemweb",
+  "description": "Websites and custom web systems for SMEs and growing businesses.",
+  "url": "https://jemweb.co",
+  "serviceType": ["Web Design", "Web Development", "Ecommerce Development", "Custom Web Applications"],
+  "areaServed": "Worldwide",
+  "offers": {
+    "@type": "Offer",
+    "description": "Business websites, ecommerce stores, and custom web systems"
+  }
+};
+
+const services = [
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    title: 'Business Websites',
+    description: 'Professional company websites, corporate sites, and service business pages that attract clients and build trust.',
+    href: '/services#business-websites',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>`,
+    title: 'Ecommerce Websites',
+    description: 'Online stores with product catalogs, checkout, payment integration, order tracking, and customer accounts.',
+    href: '/services#ecommerce',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: 'Custom Web Systems',
+    description: 'Inventory dashboards, booking systems, admin panels, client portals, and internal business tools.',
+    href: '/services#custom-systems',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>`,
+    title: 'Maintenance & Support',
+    description: 'Ongoing website updates, performance optimization, security patches, and technical support.',
+    href: '/services#maintenance',
+  },
+];
+
+const industries = [
+  { icon: '🏥', label: 'Clinics & Healthcare' },
+  { icon: '🛍️', label: 'Retail & Ecommerce' },
+  { icon: '🏢', label: 'SMEs & Startups' },
+  { icon: '🍽️', label: 'Restaurants & Hospitality' },
+  { icon: '🎓', label: 'Schools & Training' },
+  { icon: '🏠', label: 'Real Estate' },
+  { icon: '🚚', label: 'Logistics & Supply' },
+  { icon: '🏛️', label: 'NGOs & Organizations' },
+];
+
+const projects = [
+  {
+    title: 'Retail Inventory Dashboard',
+    category: 'Custom Web System',
+    description: 'Web-based inventory management with stock tracking, low-stock alerts, and product management for a retail business.',
+    tags: ['Dashboard', 'Inventory', 'Admin Panel'],
+  },
+  {
+    title: 'Clinic Appointment System',
+    category: 'Booking System',
+    description: 'Online appointment booking with doctor schedules, patient management, and automated reminders for a healthcare clinic.',
+    tags: ['Booking', 'Healthcare', 'Automation'],
+  },
+  {
+    title: 'SME Ecommerce Store',
+    category: 'Ecommerce Website',
+    description: 'Full-featured online store with product catalog, secure checkout, order tracking, and customer account management.',
+    tags: ['Ecommerce', 'Payments', 'Product Catalog'],
+  },
+];
+
+const strengths = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>`,
+    title: 'Modern Design',
+    description: 'Clean, professional designs that reflect your brand.',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`,
+    title: 'Mobile-Friendly',
+    description: 'Responsive layouts that work perfectly on all devices.',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+    title: 'Fast Performance',
+    description: 'Optimized for speed to keep visitors engaged.',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: 'Custom Functionality',
+    description: 'Tailored features for your specific business needs.',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
+    title: 'Dashboard Capability',
+    description: 'Admin panels and dashboards for managing your business.',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>`,
+    title: 'Built for Real Operations',
+    description: 'Websites and systems designed to solve real business problems.',
+  },
+];
+
+const processSteps = [
+  { step: '01', title: 'Discovery', description: 'We discuss your business, goals, and requirements.' },
+  { step: '02', title: 'Planning', description: 'I map out the structure, features, and timeline.' },
+  { step: '03', title: 'Design', description: 'Creating the visual layout and user experience.' },
+  { step: '04', title: 'Development', description: 'Building the website or system with clean code.' },
+  { step: '05', title: 'Testing', description: 'Thorough testing across devices and browsers.' },
+  { step: '06', title: 'Launch & Support', description: 'Going live with ongoing maintenance available.' },
+];
+---
+
+<BaseLayout
+  title="Jemweb — Websites & Custom Web Systems for Growing Businesses"
+  description="I build business websites, ecommerce stores, and custom web systems for SMEs. From company websites to inventory systems — tools that help businesses grow."
+  schema={schema}
+>
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-primary-600 rounded-full blur-[128px]"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-500 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+      <div class="max-w-4xl">
+        <div class="animate-fade-in-up">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-primary-200 mb-6">
+            <span class="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
+            Web Design & Development for SMEs
+          </span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+          Websites & custom web systems for businesses that want to
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400"> grow</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mb-10 animate-fade-in-up" style="animation-delay: 0.2s;">
+          I design and build company websites, ecommerce stores, clinic websites, booking systems, and inventory tools that help businesses operate better online.
+        </p>
+        <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+          <a href="/services" class="inline-flex items-center px-7 py-3.5 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-500 transition-all duration-300 shadow-lg shadow-primary-600/25 hover:shadow-xl hover:shadow-primary-600/30 hover:-translate-y-0.5">
+            View Services
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="/portfolio" class="inline-flex items-center px-7 py-3.5 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/10 hover:-translate-y-0.5">
+            See My Work
+          </a>
+          <a href="/contact" class="inline-flex items-center px-7 py-3.5 bg-accent-500 text-white font-semibold rounded-xl hover:bg-accent-400 transition-all duration-300 shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30 hover:-translate-y-0.5">
+            Request a Website
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual: Dashboard Mockup -->
+      <div class="mt-16 lg:mt-20 animate-fade-in-up" style="animation-delay: 0.5s;">
+        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-1 shadow-2xl">
+          <div class="bg-dark-800 rounded-xl overflow-hidden">
+            <div class="flex items-center gap-2 px-4 py-3 bg-dark-950/50 border-b border-white/5">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+              </div>
+              <div class="flex-1 text-center">
+                <span class="text-xs text-gray-500">dashboard.jemweb.co</span>
+              </div>
+            </div>
+            <div class="p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-white/5 rounded-lg p-4">
+                <p class="text-xs text-gray-400 mb-1">Total Orders</p>
+                <p class="text-2xl font-bold text-white">2,847</p>
+                <p class="text-xs text-accent-400 mt-1">+12.5% this month</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4">
+                <p class="text-xs text-gray-400 mb-1">Revenue</p>
+                <p class="text-2xl font-bold text-white">$48.2K</p>
+                <p class="text-xs text-accent-400 mt-1">+8.3% this month</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4">
+                <p class="text-xs text-gray-400 mb-1">Products</p>
+                <p class="text-2xl font-bold text-white">384</p>
+                <p class="text-xs text-yellow-400 mt-1">12 low stock</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4">
+                <p class="text-xs text-gray-400 mb-1">Customers</p>
+                <p class="text-2xl font-bold text-white">1,204</p>
+                <p class="text-xs text-accent-400 mt-1">+24 this week</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES OVERVIEW ==================== -->
+  <section class="py-20 sm:py-28 bg-white" id="services-overview">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="What I Build"
+          title="Services designed for real business needs"
+          description="From professional company websites to complex inventory systems — I build digital solutions that help businesses sell, organize, and operate better."
+        />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service, i) => (
+          <a
+            href={service.href}
+            class="reveal group relative bg-white border border-gray-200 rounded-2xl p-6 hover:border-primary-200 hover:shadow-lg hover:shadow-primary-100/50 transition-all duration-300 hover:-translate-y-1"
+            style={`animation-delay: ${i * 0.1}s;`}
+          >
+            <div class="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 mb-5 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+              <Fragment set:html={service.icon} />
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">{service.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{service.description}</p>
+            <div class="mt-4 inline-flex items-center text-sm font-semibold text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Learn more
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INDUSTRIES ==================== -->
+  <section class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="Who I Work With"
+          title="Business types I serve"
+          description="I understand the unique needs of different industries — from healthcare to retail. Your website will be tailored to how your business actually works."
+        />
+      </div>
+
+      <div class="mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {industries.map((industry, i) => (
+          <a
+            href="/industries"
+            class="reveal group flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 hover:border-primary-200 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+            style={`animation-delay: ${i * 0.05}s;`}
+          >
+            <span class="text-2xl">{industry.icon}</span>
+            <span class="text-sm font-semibold text-gray-800 group-hover:text-primary-600 transition-colors">{industry.label}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center reveal">
+        <a href="/industries" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+          See all industries I serve
+          <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURED PROJECTS ==================== -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="Featured Work"
+          title="Solutions I've built"
+          description="Real systems designed for real business problems. Each project solves a specific challenge — not just a pretty page."
+        />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {projects.map((project, i) => (
+          <div
+            class="reveal group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+            style={`animation-delay: ${i * 0.1}s;`}
+          >
+            <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-accent-500/10 group-hover:from-primary-600/20 group-hover:to-accent-500/20 transition-all duration-500"></div>
+              <span class="relative text-primary-600 font-bold text-lg">{project.category}</span>
+            </div>
+            <div class="p-6">
+              <span class="text-xs font-semibold text-primary-600 uppercase tracking-wider">{project.category}</span>
+              <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3 group-hover:text-primary-600 transition-colors">{project.title}</h3>
+              <p class="text-sm text-gray-600 leading-relaxed mb-4">{project.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center reveal">
+        <a href="/portfolio" class="inline-flex items-center px-7 py-3.5 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg shadow-primary-600/25 hover:-translate-y-0.5">
+          View All Projects
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY HIRE ME ==================== -->
+  <section class="py-20 sm:py-28 bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="Why Businesses Hire Me"
+          title="More than just a website"
+          description="I don't just design pages — I build tools that help businesses sell, organize, and operate. That's what sets my work apart."
+          light={true}
+        />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {strengths.map((item, i) => (
+          <div
+            class="reveal group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+            style={`animation-delay: ${i * 0.1}s;`}
+          >
+            <div class="w-12 h-12 bg-primary-600/20 rounded-xl flex items-center justify-center text-primary-400 mb-4 group-hover:bg-primary-600/30 transition-colors">
+              <Fragment set:html={item.icon} />
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROCESS ==================== -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="How I Work"
+          title="A clear process from start to finish"
+          description="Every project follows a structured process to ensure quality, clarity, and on-time delivery."
+        />
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {processSteps.map((item, i) => (
+          <div class="reveal relative" style={`animation-delay: ${i * 0.1}s;`}>
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center">
+                <span class="text-primary-600 font-extrabold text-sm">{item.step}</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST / TECH SECTION ==================== -->
+  <section class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="Technologies & Tools"
+          title="Built with modern tools"
+          description="I use industry-leading technologies to build fast, secure, and scalable websites and web systems."
+        />
+      </div>
+
+      <div class="mt-16 flex flex-wrap justify-center gap-4 reveal">
+        {['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Astro', 'Tailwind CSS', 'Node.js', 'Python', 'PostgreSQL', 'MySQL', 'MongoDB', 'Supabase', 'Git', 'Figma'].map((tech) => (
+          <span class="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:border-primary-300 hover:text-primary-600 hover:shadow-sm transition-all duration-200 cursor-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA ==================== -->
+  <section class="py-20 sm:py-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[128px]"></div>
+      <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-400 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
+          Need a website or business system for your company?
+        </h2>
+        <p class="text-lg text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Let's discuss your project. Whether it's a company website, ecommerce store, or custom business system — I'll help you build the right solution.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://wa.me/YOUR_NUMBER?text=Hi%20Jemweb%2C%20I%27m%20interested%20in%20your%20web%20services."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-7 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-400 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a href="/contact" class="inline-flex items-center px-7 py-3.5 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 shadow-lg hover:-translate-y-0.5">
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

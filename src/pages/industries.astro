@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Jemweb",
+  "description": "Web design and development services for various industries including healthcare, retail, ecommerce, hospitality, education, and more.",
+  "areaServed": "Worldwide"
+};
+
+const industries = [
+  {
+    id: 'healthcare',
+    icon: '🏥',
+    title: 'Clinics & Healthcare',
+    description: 'Professional websites and booking systems for clinics, hospitals, dental practices, and medical professionals.',
+    needs: [
+      'Professional medical website',
+      'Online appointment booking',
+      'Doctor/staff profiles',
+      'Patient information portal',
+      'Service pages with pricing',
+      'Mobile-friendly for patients on the go',
+    ],
+    cta: 'Need a website for your clinic?',
+  },
+  {
+    id: 'retail',
+    icon: '🛍️',
+    title: 'Retail & Ecommerce',
+    description: 'Online stores and inventory systems for retail shops, product brands, and ecommerce businesses.',
+    needs: [
+      'Ecommerce website with checkout',
+      'Product catalog and search',
+      'Inventory management dashboard',
+      'Order tracking and management',
+      'Customer accounts and wishlists',
+      'Payment gateway integration',
+    ],
+    cta: 'Selling products? I build ecommerce websites for SMEs.',
+  },
+  {
+    id: 'smes',
+    icon: '🏢',
+    title: 'SMEs & Startups',
+    description: 'Company websites and digital tools that help small and medium businesses establish their online presence and grow.',
+    needs: [
+      'Professional company website',
+      'Lead generation pages',
+      'Service showcase',
+      'Client testimonials section',
+      'Contact forms and WhatsApp integration',
+      'SEO-optimized content',
+    ],
+    cta: 'Need a company website that converts visitors into customers?',
+  },
+  {
+    id: 'hospitality',
+    icon: '🍽️',
+    title: 'Restaurants & Hospitality',
+    description: 'Attractive websites with menus, reservations, and ordering capabilities for restaurants, cafes, and hotels.',
+    needs: [
+      'Restaurant website with online menu',
+      'Table reservation system',
+      'Online ordering integration',
+      'Photo gallery and ambiance showcase',
+      'Hotel room booking system',
+      'Google Maps and reviews integration',
+    ],
+    cta: 'Need a website for your restaurant or hotel?',
+  },
+  {
+    id: 'education',
+    icon: '🎓',
+    title: 'Schools & Training Centers',
+    description: 'Informative websites for schools, training centers, and educational institutions that attract students and parents.',
+    needs: [
+      'School information website',
+      'Course catalog and enrollment',
+      'Staff directory',
+      'Events and news section',
+      'Parent portal',
+      'Online registration forms',
+    ],
+    cta: 'Need a website for your school or training center?',
+  },
+  {
+    id: 'realestate',
+    icon: '🏠',
+    title: 'Real Estate',
+    description: 'Property listing websites and management tools for real estate agencies and property developers.',
+    needs: [
+      'Property listing website',
+      'Search and filter functionality',
+      'Property detail pages with galleries',
+      'Agent profiles and contact forms',
+      'Map integration for locations',
+      'Inquiry management system',
+    ],
+    cta: 'Need a property listing website?',
+  },
+  {
+    id: 'logistics',
+    icon: '🚚',
+    title: 'Logistics & Supply',
+    description: 'Operational websites and tracking systems for logistics companies, wholesalers, and distributors.',
+    needs: [
+      'Company website with service areas',
+      'Order/shipment tracking',
+      'Inventory and warehouse dashboard',
+      'Client portal for order placement',
+      'Route and delivery management',
+      'Reporting and analytics dashboard',
+    ],
+    cta: 'Need a system for managing your logistics operations?',
+  },
+  {
+    id: 'services',
+    icon: '🔧',
+    title: 'Service Businesses',
+    description: 'Lead-generating websites for service-based companies — from consultants to cleaning services.',
+    needs: [
+      'Professional service website',
+      'Booking and scheduling system',
+      'Service area pages',
+      'Customer testimonials',
+      'Inquiry and quote request forms',
+      'Portfolio of completed work',
+    ],
+    cta: 'Need a website that brings in more clients?',
+  },
+  {
+    id: 'ngos',
+    icon: '🏛️',
+    title: 'NGOs & Organizations',
+    description: 'Mission-driven websites for non-profits, community organizations, and advocacy groups.',
+    needs: [
+      'Organization website',
+      'Programs and impact pages',
+      'Donation integration',
+      'Volunteer registration',
+      'News and updates blog',
+      'Event management',
+    ],
+    cta: 'Need a website for your organization?',
+  },
+];
+---
+
+<BaseLayout
+  title="Industries — Jemweb | Web Solutions for Every Business Type"
+  description="I build websites and web systems for clinics, retail stores, SMEs, restaurants, schools, real estate, logistics, and more. Tailored solutions for your industry."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-20 sm:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <div class="absolute bottom-10 left-20 w-80 h-80 bg-accent-500 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-300 mb-4">Industries</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+        Who I work with
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        I understand the unique needs of different industries. Your website will be tailored to how your business actually works — not a generic template.
+      </p>
+    </div>
+  </section>
+
+  <!-- Industries Grid -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        {industries.map((industry, i) => (
+          <div id={industry.id} class="reveal scroll-mt-24">
+            <div class="bg-gray-50 rounded-2xl p-8 sm:p-10 hover:shadow-lg transition-shadow duration-300">
+              <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                <div class="lg:col-span-2">
+                  <span class="text-4xl mb-4 block">{industry.icon}</span>
+                  <h2 class="text-2xl font-extrabold text-gray-900 mb-3">{industry.title}</h2>
+                  <p class="text-gray-600 leading-relaxed mb-6">{industry.description}</p>
+                  <p class="text-primary-600 font-semibold text-sm italic mb-4">"{industry.cta}"</p>
+                  <a href="/contact" class="inline-flex items-center text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors">
+                    Discuss your project
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </a>
+                </div>
+                <div class="lg:col-span-3">
+                  <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">What you typically need</h3>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {industry.needs.map((need) => (
+                      <div class="flex items-start gap-2.5">
+                        <svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-sm text-gray-700 font-medium">{need}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 sm:py-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
+          Don't see your industry?
+        </h2>
+        <p class="text-lg text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+          I work with businesses of all types. If you need a professional website or business system, let's talk about what you need.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://wa.me/YOUR_NUMBER?text=Hi%20Jemweb%2C%20I%20need%20a%20website%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-7 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-400 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a href="/contact" class="inline-flex items-center px-7 py-3.5 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 shadow-lg hover:-translate-y-0.5">
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

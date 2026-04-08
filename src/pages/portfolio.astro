@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Portfolio — Jemweb",
+  "description": "Case studies and projects showcasing business websites, ecommerce stores, and custom web systems built for SMEs.",
+  "url": "https://jemweb.co/portfolio"
+};
+
+const projects = [
+  {
+    title: 'Retail Inventory Dashboard',
+    category: 'Custom Web System',
+    businessType: 'Retail Store',
+    problem: 'The business needed a better way to manage hundreds of products and track stock levels across their store.',
+    solution: 'Built a web-based inventory dashboard with product management, real-time stock tracking, and automated low-stock alerts.',
+    features: ['Login & role-based access', 'Product CRUD operations', 'Stock level tracking', 'Low-stock alerts', 'Search and filter', 'Admin dashboard with analytics'],
+    tools: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    outcome: 'Improved stock visibility and reduced manual tracking time by 70%. The business can now manage inventory from any device.',
+    color: 'from-blue-500 to-indigo-600',
+  },
+  {
+    title: 'Clinic Appointment Booking System',
+    category: 'Booking System',
+    businessType: 'Healthcare Clinic',
+    problem: 'Patients had to call to book appointments, causing long wait times and missed bookings. The clinic needed an online solution.',
+    solution: 'Developed an online appointment booking system with doctor schedules, patient management, and automated email reminders.',
+    features: ['Online booking calendar', 'Doctor schedule management', 'Patient records', 'Automated reminders', 'Admin dashboard', 'Mobile-responsive design'],
+    tools: ['Next.js', 'Supabase', 'Tailwind CSS', 'Node.js'],
+    outcome: 'Reduced phone call volume by 60% and eliminated double-bookings. Patients can now book appointments 24/7.',
+    color: 'from-emerald-500 to-teal-600',
+  },
+  {
+    title: 'SME Ecommerce Store',
+    category: 'Ecommerce Website',
+    businessType: 'Online Retail Brand',
+    problem: 'A growing brand needed a professional online store to sell products directly to customers with proper order management.',
+    solution: 'Built a full-featured ecommerce website with product catalog, secure checkout, order tracking, and customer accounts.',
+    features: ['Product catalog with categories', 'Shopping cart & checkout', 'Payment gateway integration', 'Order tracking', 'Customer accounts', 'Inventory sync'],
+    tools: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind CSS'],
+    outcome: 'The brand launched online sales successfully, processing 200+ orders in the first month with a 3.2% conversion rate.',
+    color: 'from-orange-500 to-red-600',
+  },
+  {
+    title: 'Corporate Company Website',
+    category: 'Business Website',
+    businessType: 'SME / Professional Services',
+    problem: 'The company had an outdated website that didn\'t reflect their professionalism or generate leads effectively.',
+    solution: 'Redesigned their company website with a modern layout, clear service pages, SEO optimization, and WhatsApp integration for inquiries.',
+    features: ['Modern responsive design', 'Service & about pages', 'Contact forms & WhatsApp CTA', 'SEO optimization', 'Fast loading speed', 'Google Analytics integration'],
+    tools: ['Astro', 'Tailwind CSS', 'Vercel'],
+    outcome: 'Website traffic increased by 45% and inquiry form submissions doubled within the first quarter after launch.',
+    color: 'from-purple-500 to-violet-600',
+  },
+  {
+    title: 'Restaurant Website with Online Menu',
+    category: 'Business Website',
+    businessType: 'Restaurant / Cafe',
+    problem: 'The restaurant needed an attractive online presence with an up-to-date menu, reservation capability, and Google visibility.',
+    solution: 'Created a visually appealing restaurant website with an interactive digital menu, table reservation form, and Google Maps integration.',
+    features: ['Digital menu with categories', 'Table reservation form', 'Photo gallery', 'Google Maps embed', 'WhatsApp ordering', 'Mobile-first design'],
+    tools: ['Astro', 'Tailwind CSS', 'Netlify'],
+    outcome: 'Online reservations increased by 35% and the restaurant saw improved Google search visibility in their local area.',
+    color: 'from-amber-500 to-orange-600',
+  },
+  {
+    title: 'Wholesale Order Management System',
+    category: 'Custom Web System',
+    businessType: 'Wholesaler / Distributor',
+    problem: 'The distributor managed orders via spreadsheets and phone calls, leading to errors and slow fulfillment.',
+    solution: 'Built a web-based order management system with client accounts, order placement, inventory tracking, and reporting dashboards.',
+    features: ['Client portal for ordering', 'Order management dashboard', 'Inventory tracking', 'Invoice generation', 'Reporting & analytics', 'Role-based access control'],
+    tools: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
+    outcome: 'Order processing time reduced by 50% and order errors dropped significantly. The team now manages everything from one dashboard.',
+    color: 'from-cyan-500 to-blue-600',
+  },
+];
+
+const categories = ['All', ...new Set(projects.map(p => p.category))];
+---
+
+<BaseLayout
+  title="Portfolio — Jemweb | Case Studies & Projects"
+  description="Explore my portfolio of business websites, ecommerce stores, and custom web systems. Real solutions for real business problems."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-20 sm:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <div class="absolute top-20 left-1/2 w-96 h-96 bg-primary-500 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-300 mb-4">Portfolio</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+        Solutions I've built
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Each project solves a specific business challenge. Not just pretty pages — real systems that help businesses operate and grow.
+      </p>
+    </div>
+  </section>
+
+  <!-- Portfolio Filter & Grid -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-3 mb-16 reveal" id="portfolio-filters">
+        {categories.map((cat) => (
+          <button
+            data-filter={cat}
+            class:list={[
+              'px-5 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200 portfolio-filter-btn',
+              cat === 'All'
+                ? 'bg-primary-600 text-white shadow-sm'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
+            ]}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Projects -->
+      <div class="space-y-12" id="portfolio-grid">
+        {projects.map((project, i) => (
+          <div class="reveal portfolio-item" data-category={project.category}>
+            <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500">
+              <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
+                <!-- Left: Visual -->
+                <div class={`lg:col-span-2 bg-gradient-to-br ${project.color} p-8 sm:p-10 flex flex-col justify-center text-white min-h-[240px]`}>
+                  <span class="text-sm font-semibold uppercase tracking-wider text-white/70 mb-2">{project.category}</span>
+                  <h2 class="text-2xl sm:text-3xl font-extrabold mb-3">{project.title}</h2>
+                  <p class="text-sm text-white/80">For: {project.businessType}</p>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="lg:col-span-3 p-8 sm:p-10">
+                  <div class="space-y-6">
+                    <div>
+                      <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">The Problem</h3>
+                      <p class="text-gray-700 leading-relaxed">{project.problem}</p>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">The Solution</h3>
+                      <p class="text-gray-700 leading-relaxed">{project.solution}</p>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-3">Key Features</h3>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {project.features.map((feature) => (
+                          <div class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-accent-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-sm text-gray-700">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-6 pt-2 border-t border-gray-100">
+                      <div>
+                        <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Tools Used</h3>
+                        <div class="flex flex-wrap gap-2">
+                          {project.tools.map((tool) => (
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">{tool}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-accent-50 rounded-xl p-4 border border-accent-100">
+                      <h3 class="text-xs font-semibold uppercase tracking-wider text-accent-700 mb-1">Result</h3>
+                      <p class="text-sm text-accent-800 font-medium">{project.outcome}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 sm:py-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
+          Want a solution like these for your business?
+        </h2>
+        <p class="text-lg text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Every project starts with understanding your business. Let's discuss what you need and I'll build the right solution.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://wa.me/YOUR_NUMBER?text=Hi%20Jemweb%2C%20I%20saw%20your%20portfolio%20and%20I%27m%20interested%20in%20a%20similar%20solution."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-7 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-400 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a href="/contact" class="inline-flex items-center px-7 py-3.5 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 shadow-lg hover:-translate-y-0.5">
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.portfolio-filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-primary-600', 'text-white', 'shadow-sm');
+        b.classList.add('bg-gray-100', 'text-gray-600');
+      });
+      btn.classList.remove('bg-gray-100', 'text-gray-600');
+      btn.classList.add('bg-primary-600', 'text-white', 'shadow-sm');
+
+      items.forEach((item) => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'All' || category === filter) {
+          (item as HTMLElement).style.display = '';
+          (item as HTMLElement).style.opacity = '1';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

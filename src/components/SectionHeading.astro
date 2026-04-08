@@ -1,0 +1,36 @@
+---
+interface Props {
+  subtitle?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  light?: boolean;
+}
+
+const { subtitle, title, description, align = 'center', light = false } = Astro.props;
+---
+
+<div class:list={[align === 'center' ? 'text-center' : 'text-left', 'max-w-3xl', align === 'center' && 'mx-auto']}>
+  {subtitle && (
+    <span class:list={[
+      'inline-block text-sm font-semibold uppercase tracking-wider mb-3',
+      light ? 'text-primary-300' : 'text-primary-600',
+    ]}>
+      {subtitle}
+    </span>
+  )}
+  <h2 class:list={[
+    'text-3xl sm:text-4xl font-extrabold tracking-tight mb-4',
+    light ? 'text-white' : 'text-gray-900',
+  ]}>
+    {title}
+  </h2>
+  {description && (
+    <p class:list={[
+      'text-lg leading-relaxed',
+      light ? 'text-gray-300' : 'text-gray-600',
+    ]}>
+      {description}
+    </p>
+  )}
+</div>

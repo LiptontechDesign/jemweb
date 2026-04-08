@@ -1,0 +1,325 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Jemweb",
+  "description": "Request a quote or get in touch. Tell me about your business and what you need — I'll recommend the right web solution for you.",
+  "url": "https://jemweb.co/contact"
+};
+---
+
+<BaseLayout
+  title="Contact — Jemweb | Request a Quote"
+  description="Request a quote for your business website, ecommerce store, or custom web system. Tell me about your project and I'll get back to you within 24 hours."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-20 sm:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <div class="absolute bottom-10 right-20 w-80 h-80 bg-primary-500 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-300 mb-4">Contact</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+        Let's build something great
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Tell me about your business and what you need. I'll recommend the right solution and get back to you within 24 hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Methods + Form -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+
+        <!-- Left: Contact Methods -->
+        <div class="lg:col-span-2">
+          <h2 class="text-2xl font-extrabold text-gray-900 mb-6">Get in touch</h2>
+          <p class="text-gray-600 leading-relaxed mb-10">
+            The fastest way to reach me is via WhatsApp. I typically respond within a few hours during business days.
+          </p>
+
+          <!-- WhatsApp (Primary) -->
+          <a
+            href="https://wa.me/YOUR_NUMBER?text=Hi%20Jemweb%2C%20I%27m%20interested%20in%20your%20web%20services.%20Here%27s%20what%20I%20need%3A"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-4 p-5 bg-green-50 border-2 border-green-200 rounded-2xl hover:border-green-400 hover:shadow-md transition-all duration-300 mb-4"
+          >
+            <div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-green-600 transition-colors">
+              <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-green-600">Preferred Contact</span>
+              <p class="text-lg font-bold text-gray-900">WhatsApp</p>
+              <p class="text-sm text-gray-500">Fastest response — usually within hours</p>
+            </div>
+          </a>
+
+          <!-- Email -->
+          <a
+            href="mailto:hello@jemweb.co"
+            class="group flex items-center gap-4 p-5 bg-gray-50 border border-gray-200 rounded-2xl hover:border-primary-300 hover:shadow-md transition-all duration-300 mb-4"
+          >
+            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors text-primary-600">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Email</span>
+              <p class="text-lg font-bold text-gray-900">hello@jemweb.co</p>
+              <p class="text-sm text-gray-500">I'll respond within 24 hours</p>
+            </div>
+          </a>
+
+          <!-- Phone -->
+          <a
+            href="tel:+000000000"
+            class="group flex items-center gap-4 p-5 bg-gray-50 border border-gray-200 rounded-2xl hover:border-primary-300 hover:shadow-md transition-all duration-300"
+          >
+            <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors text-primary-600">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-gray-500">Phone</span>
+              <p class="text-lg font-bold text-gray-900">+00 000 000 000</p>
+              <p class="text-sm text-gray-500">Available during business hours</p>
+            </div>
+          </a>
+
+          <!-- Response Time -->
+          <div class="mt-8 p-5 bg-primary-50 border border-primary-100 rounded-2xl">
+            <div class="flex items-start gap-3">
+              <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <div>
+                <p class="font-semibold text-primary-800 text-sm">Quick Response Promise</p>
+                <p class="text-sm text-primary-700 mt-1">I respond to all inquiries within 24 hours. WhatsApp messages are usually answered within a few hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Quote Request Form -->
+        <div class="lg:col-span-3">
+          <div class="bg-gray-50 rounded-2xl p-8 sm:p-10">
+            <h2 class="text-2xl font-extrabold text-gray-900 mb-2">Request a Quote</h2>
+            <p class="text-gray-600 mb-8">Fill out the form below and I'll get back to you with a recommendation and estimate.</p>
+
+            <form id="contact-form" class="space-y-6" action="#" method="POST">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Business Name -->
+                <div>
+                  <label for="business-name" class="block text-sm font-semibold text-gray-700 mb-2">Business Name *</label>
+                  <input
+                    type="text"
+                    id="business-name"
+                    name="business-name"
+                    required
+                    placeholder="e.g. ABC Trading Ltd"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-shadow bg-white"
+                  />
+                </div>
+
+                <!-- Contact Name -->
+                <div>
+                  <label for="contact-name" class="block text-sm font-semibold text-gray-700 mb-2">Your Name *</label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="contact-name"
+                    required
+                    placeholder="Your full name"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-shadow bg-white"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="you@company.com"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-shadow bg-white"
+                  />
+                </div>
+
+                <!-- Phone / WhatsApp -->
+                <div>
+                  <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone / WhatsApp</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+00 000 000 000"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-shadow bg-white"
+                  />
+                </div>
+              </div>
+
+              <!-- Business Type -->
+              <div>
+                <label for="business-type" class="block text-sm font-semibold text-gray-700 mb-2">Business Type *</label>
+                <select
+                  id="business-type"
+                  name="business-type"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+                >
+                  <option value="">Select your business type</option>
+                  <option value="retail">Retail / Store</option>
+                  <option value="ecommerce">Ecommerce Brand</option>
+                  <option value="healthcare">Clinic / Healthcare</option>
+                  <option value="restaurant">Restaurant / Hospitality</option>
+                  <option value="education">School / Training Center</option>
+                  <option value="realestate">Real Estate</option>
+                  <option value="logistics">Logistics / Supply</option>
+                  <option value="services">Service Business</option>
+                  <option value="ngo">NGO / Organization</option>
+                  <option value="startup">Startup</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- What do you need -->
+              <div>
+                <label for="service-type" class="block text-sm font-semibold text-gray-700 mb-2">What do you need? *</label>
+                <select
+                  id="service-type"
+                  name="service-type"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+                >
+                  <option value="">Select the type of project</option>
+                  <option value="business-website">Business / Company Website</option>
+                  <option value="ecommerce-website">Ecommerce / Online Store</option>
+                  <option value="custom-system">Custom Web System (inventory, booking, etc.)</option>
+                  <option value="landing-page">Landing Page</option>
+                  <option value="website-redesign">Website Redesign</option>
+                  <option value="maintenance">Website Maintenance / Support</option>
+                  <option value="not-sure">Not Sure — Need Advice</option>
+                </select>
+              </div>
+
+              <!-- Features -->
+              <div>
+                <label for="features" class="block text-sm font-semibold text-gray-700 mb-2">Features you want</label>
+                <textarea
+                  id="features"
+                  name="features"
+                  rows="3"
+                  placeholder="e.g. product catalog, online booking, inventory dashboard, payment integration, admin panel, etc."
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-y bg-white"
+                ></textarea>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Budget -->
+                <div>
+                  <label for="budget" class="block text-sm font-semibold text-gray-700 mb-2">Budget Range</label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select budget range</option>
+                    <option value="under-500">Under $500</option>
+                    <option value="500-1000">$500 — $1,000</option>
+                    <option value="1000-3000">$1,000 — $3,000</option>
+                    <option value="3000-5000">$3,000 — $5,000</option>
+                    <option value="5000-plus">$5,000+</option>
+                    <option value="discuss">Let's Discuss</option>
+                  </select>
+                </div>
+
+                <!-- Timeline -->
+                <div>
+                  <label for="timeline" class="block text-sm font-semibold text-gray-700 mb-2">Timeline</label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select timeline</option>
+                    <option value="asap">ASAP</option>
+                    <option value="1-2-weeks">1–2 weeks</option>
+                    <option value="1-month">Within a month</option>
+                    <option value="2-3-months">2–3 months</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Additional Info -->
+              <div>
+                <label for="additional" class="block text-sm font-semibold text-gray-700 mb-2">Additional Details</label>
+                <textarea
+                  id="additional"
+                  name="additional"
+                  rows="4"
+                  placeholder="Tell me anything else about your project, goals, or current situation..."
+                  class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-y bg-white"
+                ></textarea>
+              </div>
+
+              <!-- Submit -->
+              <div class="flex flex-col sm:flex-row gap-4">
+                <button
+                  type="submit"
+                  class="inline-flex items-center justify-center px-8 py-3.5 bg-primary-600 text-white font-semibold rounded-xl hover:bg-primary-700 transition-all duration-300 shadow-lg shadow-primary-600/25 hover:-translate-y-0.5"
+                >
+                  Send Request
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                </button>
+                <a
+                  href="https://wa.me/YOUR_NUMBER?text=Hi%20Jemweb%2C%20I%27d%20like%20to%20request%20a%20quote%20for%20my%20project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-8 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-600 transition-all duration-300 shadow-lg shadow-green-500/25 hover:-translate-y-0.5"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Or Chat on WhatsApp
+                </a>
+              </div>
+            </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div id="form-success" class="hidden mt-6 p-6 bg-green-50 border border-green-200 rounded-xl text-center">
+              <svg class="w-12 h-12 text-green-500 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 class="text-lg font-bold text-green-800 mb-1">Request Sent!</h3>
+              <p class="text-sm text-green-700">Thank you! I'll review your request and get back to you within 24 hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMsg = document.getElementById('form-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // In production, you would send this data to an API endpoint or email service
+    // For now, show the success message
+    form.style.display = 'none';
+    successMsg?.classList.remove('hidden');
+  });
+</script>

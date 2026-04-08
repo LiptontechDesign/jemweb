@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "provider": { "@type": "ProfessionalService", "name": "Jemweb" },
+  "serviceType": [
+    "Business Website Design",
+    "Ecommerce Website Development",
+    "Custom Web Application Development",
+    "Inventory Management Systems",
+    "Booking Systems",
+    "Website Maintenance"
+  ],
+  "description": "Professional web design and development services for SMEs — from company websites to custom business systems."
+};
+
+const serviceCategories = [
+  {
+    id: 'business-websites',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    title: 'Business Websites',
+    description: 'Professional websites that establish credibility, attract clients, and represent your brand online.',
+    items: [
+      'Company profile websites',
+      'SME websites',
+      'Corporate websites',
+      'Service business websites',
+      'Clinic / hospital / medical websites',
+      'School / training center websites',
+      'Restaurant / hotel websites',
+      'NGO / organization websites',
+    ],
+  },
+  {
+    id: 'ecommerce',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>`,
+    title: 'Ecommerce Websites',
+    description: 'Online stores that help you sell products, manage orders, and grow your revenue.',
+    items: [
+      'Online stores',
+      'Product catalogs',
+      'Checkout and payment integration',
+      'Order tracking',
+      'Customer accounts',
+      'Inventory-aware ecommerce',
+    ],
+  },
+  {
+    id: 'custom-systems',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: 'Custom Web Systems',
+    description: 'Tailored web applications that solve specific business problems — from inventory to bookings.',
+    items: [
+      'Inventory management systems',
+      'Stock management dashboards',
+      'Booking & appointment systems',
+      'Admin dashboards',
+      'Internal business tools',
+      'Client portals',
+    ],
+  },
+  {
+    id: 'static-websites',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+    title: 'Static Websites',
+    description: 'Fast, lightweight websites perfect for landing pages, portfolios, and marketing campaigns.',
+    items: [
+      'Fast landing pages',
+      'Brochure sites',
+      'Portfolios',
+      'Event websites',
+      'Marketing websites',
+    ],
+  },
+  {
+    id: 'dynamic-websites',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>`,
+    title: 'Dynamic / Backend-Powered Websites',
+    description: 'Full-stack websites with databases, login systems, and complex workflows.',
+    items: [
+      'Login systems',
+      'Dashboards',
+      'CMS-based sites',
+      'Ecommerce backends',
+      'Forms and workflow systems',
+      'Custom databases and reporting',
+    ],
+  },
+  {
+    id: 'maintenance',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>`,
+    title: 'Website Maintenance & Support',
+    description: 'Keep your website running smoothly with ongoing updates, monitoring, and technical support.',
+    items: [
+      'Website updates and changes',
+      'Performance optimization',
+      'Security patches and monitoring',
+      'Content updates',
+      'Technical support',
+      'Website redesign and modernization',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Services — Jemweb | Web Design & Development for SMEs"
+  description="Business websites, ecommerce stores, custom web systems, inventory dashboards, booking systems, and more. Professional web solutions for growing businesses."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-dark-950 via-dark-900 to-primary-950 text-white py-20 sm:py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <div class="absolute top-10 right-20 w-72 h-72 bg-primary-500 rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-sm font-semibold uppercase tracking-wider text-primary-300 mb-4">Services</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+        What I build for businesses
+      </h1>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        From professional company websites to complex inventory systems — I build digital solutions that help businesses sell, organize, and operate better online.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service Categories -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-20">
+        {serviceCategories.map((category, i) => (
+          <div id={category.id} class="reveal scroll-mt-24">
+            <div class:list={['grid grid-cols-1 lg:grid-cols-2 gap-12 items-start', i % 2 === 1 && 'lg:grid-flow-dense']}>
+              <div class:list={[i % 2 === 1 && 'lg:col-start-2']}>
+                <div class="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 mb-6">
+                  <Fragment set:html={category.icon} />
+                </div>
+                <h2 class="text-3xl font-extrabold text-gray-900 mb-4">{category.title}</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">{category.description}</p>
+                <a href="/contact" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                  Discuss your project
+                  <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              </div>
+              <div class:list={[i % 2 === 1 && 'lg:col-start-1']}>
+                <div class="bg-gray-50 rounded-2xl p-8">
+                  <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-6">What's included</h3>
+                  <ul class="space-y-4">
+                    {category.items.map((item) => (
+                      <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-accent-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span class="text-gray-700 font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Better Labels Section -->
+  <section class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal">
+        <SectionHeading
+          subtitle="How I Describe My Services"
+          title="Clear, professional service labels"
+          description="Instead of generic terms, I use business-facing descriptions that communicate real value."
+        />
+      </div>
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+        {[
+          'Business Website Design',
+          'Ecommerce Website Development',
+          'Custom Web Application Development',
+          'Inventory & Stock Management Systems',
+          'Booking & Appointment Systems',
+          'Backend Dashboards & Admin Panels',
+          'Website Redesign & Modernization',
+          'Website Maintenance & Support',
+        ].map((label) => (
+          <div class="bg-white border border-gray-200 rounded-xl p-5 text-center hover:border-primary-300 hover:shadow-sm transition-all duration-200">
+            <span class="text-sm font-semibold text-gray-800">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 sm:py-28 bg-gradient-to-br from-primary-600 to-primary-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[128px]"></div>
+    </div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">
+          Not sure which service you need?
+        </h2>
+        <p class="text-lg text-primary-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Tell me about your business and what you want to achieve. I'll recommend the right solution for you.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://wa.me/YOUR_NUMBER?text=Hi%20Jemweb%2C%20I%20need%20help%20choosing%20the%20right%20web%20service%20for%20my%20business."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center px-7 py-3.5 bg-green-500 text-white font-semibold rounded-xl hover:bg-green-400 transition-all duration-300 shadow-lg hover:-translate-y-0.5"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <a href="/contact" class="inline-flex items-center px-7 py-3.5 bg-white text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300 shadow-lg hover:-translate-y-0.5">
+            Request a Quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
